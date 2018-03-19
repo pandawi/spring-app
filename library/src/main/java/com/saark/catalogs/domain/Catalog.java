@@ -1,6 +1,8 @@
 package com.saark.catalogs.domain;
 
-public class Catalog {
+import java.util.Comparator;
+
+public class Catalog implements Comparable<Catalog> {
 
 
     public Integer getSiteID() {
@@ -67,5 +69,9 @@ public class Catalog {
     private Boolean isCatalogEnabled;
     private Long vcsId;
 
-
+    @Override
+    public int compareTo(Catalog o) {
+        int sameId = this.catalogId.compareTo(o.catalogId);
+        return sameId == 0 ? this.categoryId.compareTo(o.categoryId) : sameId;
+    }
 }

@@ -10,6 +10,10 @@ public class CatalogsService {
     
     private final CatalogsServiceProperties catalogsServiceProperties;
 
+    public String apiUrl() {
+        return catalogsServiceProperties.getApiUrl();
+    }
+
     public CatalogsService(CatalogsServiceProperties catalogsServiceProperties) {
         this.catalogsServiceProperties = catalogsServiceProperties;
     }

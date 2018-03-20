@@ -1,0 +1,5 @@
+com/saark/catalogs/service/CatalogsService.class
+com/saark/catalogs/domain/Catalog.class
+com/saark/catalogs/models/ResponseStatus.class
+com/saark/catalogs/service/CatalogsServiceProperties.class
+com/saark/catalogs/models/CatalogMappingRequest.class

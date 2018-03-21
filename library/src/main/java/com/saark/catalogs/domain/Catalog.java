@@ -69,6 +69,11 @@ public class Catalog implements Comparable<Catalog> {
     private Boolean isCatalogEnabled;
     private Long vcsId;
 
+    /**
+     * Compare catalogs by id and category
+     * @param o catalog to compare
+     * @return indication of sort
+     */
     @Override
     public int compareTo(Catalog o) {
         int sameId = this.catalogId.compareTo(o.catalogId);

@@ -28,6 +28,9 @@ public class CreateReport {
         this.printToConsole();
     }
 
+    /**
+     * Call the service to fetch all mapping and add them to the allMapping array for further processing
+     */
     private void getAllMapping() {
         for (int i = 40; i <= 101; i++) {
             CatalogMappingRequest catalogMappingRequest = this.catalogsService.getMappingResponse((long) i, -1);
@@ -37,6 +40,10 @@ public class CreateReport {
         }
     }
 
+    /**
+     * Go over all catalogs that were received from the server
+     * Create the hash map of sites with their corresponding list of catalogs
+     */
     private void setupHashMap() {
         for (Catalog c : this.allMapping) {
             if (this.catalogHashMap.get(c.getSiteID()) != null) {
@@ -49,6 +56,9 @@ public class CreateReport {
         }
     }
 
+    /**
+     * Print the report to the console
+     */
     private void printToConsole() {
         for (Map.Entry<Integer, List<Catalog>> listEntry : this.catalogHashMap.entrySet()) {
             List<Catalog> currentValue = listEntry.getValue();
@@ -61,6 +71,13 @@ public class CreateReport {
         }
     }
 
+    /**
+     * Helper function to create a string of data from catalog details
+     * @param catalogId catalog id
+     * @param categoryName catalog's category name
+     * @param categoryId catalog's category id
+     * @return string of the data received
+     */
     private String stringifyCatalogData(Long catalogId, String categoryName, Long categoryId) {
         return "Catalog " + catalogId + " is mapped to category " + categoryName + " (" + categoryId + ")";
     }
